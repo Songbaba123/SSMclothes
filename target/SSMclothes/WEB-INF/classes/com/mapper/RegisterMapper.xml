@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.mapper.IregisterMapper"><!--文件地址  -->
+  <insert id="save"  parameterType="com.po.register">
+    INSERT  INTO   register(regid,iid,passwd,question,answer)VALUES(#{regid},#{iid},#{passwd},#{question},#{answer}) 
+  </insert>
+  <update id="update" parameterType="com.po.register">
+  UPDATE  register  SET passwd=#{passwd}  where  iid=#{iid}
+  </update>
+  <delete id="delbyreg" parameterType="Integer">
+    DELETE FROM register  WHERE  regid=#{regid} 
+  </delete>
+  <delete id="delbyid" parameterType="String">
+    DELETE FROM register  WHERE  iid=#{iid} 
+  </delete>
+  <select id="findbyiid"  parameterType="String"  resultType="com.po.register">
+  select *  from  register  where iid=#{iid}
+  </select>
+  <select id="findbyid"  parameterType="Integer"  resultType="com.po.register">
+  select *  form  register  where  regid=#{regid}
+  </select>
+   <select id="findalll" resultType="com.po.register">
+  SELECT  *   FROM  register  
+  </select>
+  <select id="findall"  parameterType="com.po.pagebean" resultType="com.po.register">
+  SELECT  *   FROM  register  ORDER  BY regid LIMIT ${(page-1)*rows},${rows}
+  </select>
+  <select id="findmaxrows"  resultType="Integer">
+  SELECT  count(*)  FROM  register 
+  </select>
+  </mapper>

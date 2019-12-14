@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/action/ClothesAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/po/clothes.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/po/collect.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/po/orderform.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/po/pagebean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/po/register.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/util/AjAxUtils.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

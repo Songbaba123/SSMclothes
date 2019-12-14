@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.mapper.IorderformMapper"><!--文件地址  -->
+  <insert id="save"  parameterType="com.po.orderform">
+   INSERT  INTO  orderform(clid,regid,coid)VALUES(#{clid},#{regid},#{coid}) 
+  </insert>
+  <update id="update" parameterType="com.po.orderform">
+  UPDATE  orderform  SET clid=#{clothesname},regid=#{regid},coid=#{coid} WHERE ordid=#{ordid}
+  </update>
+   <delete id="delbyid" parameterType="Integer">
+    DELETE FROM orderform  WHERE  ordid=#{ordid} 
+  </delete>
+  <delete id="delbyiid" parameterType="Integer">
+    DELETE FROM orderform  WHERE  regid=#{regid} 
+  </delete>
+  <select id="findbyiid" parameterType="Integer" resultType="com.po.orderform">
+   SELECT  om.ordid,cl.clothesname,cl.photo,cl.size,cl.price,co.sname,co.phonenumber,co.address,re.regid
+ FROM   clothes  cl,collect co,register  re,orderform  om
+ WHERE  om.clid=cl.clid  AND  om.coid=co.coid   AND  om.regid=re.regid  and  re.regid=#{ordid}  
+  </select>
+   <select id="findbyid" parameterType="Integer" resultType="com.po.orderform">
+  SELECT  om.ordid,cl.clothesname,cl.photo,cl.size,cl.price,co.sname,co.phonenumber,co.address,re.regid
+  FROM   clothes  cl,collect co,register  re,orderform  om
+  WHERE  om.clid=cl.clid  AND  om.coid=co.coid   AND  om.regid=re.regid  and  om.regid=#{regid}  
+  </select>
+  <select id="findall" parameterType="com.po.pagebean" resultType="com.po.orderform">
+  SELECT  om.ordid,cl.clothesname,cl.photo,cl.size,cl.price,co.sname,co.phonenumber,co.address,re.regid
+  FROM   clothes  cl,collect co,register  re,orderform  om
+  WHERE  om.clid=cl.clid  AND  om.coid=co.coid   AND  om.regid=re.regid   ORDER  BY ordid LIMIT ${(page-1)*rows},${rows}
+  </select>
+  <select id="findmaxrows" resultType="Integer">
+  SELECT  count(*)  FROM  orderform  
+  </select>
+  </mapper>
